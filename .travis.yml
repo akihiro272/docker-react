@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t akihr/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true akihr/docker-react npm run test
+  
